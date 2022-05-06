@@ -27,12 +27,12 @@ def points(groundset,repset,func,lambdaval):
         distanceMatrix = distance.cdist(groundset, repset, 'euclidean')
         similarityMatrix = 1-distanceMatrix
         features = []
-    for i in range(48):
+        for i in range(48):
         #features.append(distanceMatrix[i].tolist())
-        features.append(similarityMatrix[i].tolist())
+            features.append(similarityMatrix[i].tolist())
 
-    FB = FeatureBasedFunction(n=len(groundset),features=features, numFeatures=36, sparse=False,mode=FeatureBased.logarithmic)
-    greedyList = FB.maximize(budget=10,optimizer='NaiveGreedy', stopIfZeroGain=False, stopIfNegativeGain=False, verbose=False)
+        FB = FeatureBasedFunction(n=len(groundset),features=features, numFeatures=36, sparse=False,mode=FeatureBased.logarithmic)
+        greedyList = FB.maximize(budget=10,optimizer='NaiveGreedy', stopIfZeroGain=False, stopIfNegativeGain=False, verbose=False)
     return [i[0] for i in greedyList]
 
 if __name__ == "__main__":
@@ -40,7 +40,6 @@ if __name__ == "__main__":
     repfile = open('rep.txt')
     groundset = []
     for l in groundsetfile.readlines():
-        print(l.strip().split(','))
         groundset.append([float(l.strip().split(',')[0]),float(l.strip().split(',')[1])])
     repset = []
     for l in repfile.readlines():
