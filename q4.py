@@ -89,7 +89,7 @@ if __name__ == "__main__":
         plt.scatter(repx,repy,label="representation set")
         plt.scatter([i[0] for i in points_selected], [i[1] for i in points_selected],label="GraphCut")
         plt.legend()
-        plt.savefig('GraphCut.png'+str(lambdaval))
+        plt.savefig('GraphCut'+str(lambdaval)+'.png')
         plt.close()
 
     #Part-4g (DisparityMin)
