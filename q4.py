@@ -32,3 +32,8 @@ if __name__ == "__main__":
     obj1 = FacilityLocationFunction(n=len(gset),n_rep=len(rep), mode="dense", separate_rep=True,data=np.array(gset),data_rep=np.array(rep))
     greedyList = obj1.maximize(budget=10,optimizer='NaiveGreedy', stopIfZeroGain=False, stopIfNegativeGain=False, verbose=False)
     print(greedyList)
+    points_selected_idx = [i[0] for i in greedyList]
+    points_selected = np.array(gset)[points_selected_idx]
+    plt.scatter([i[0] for i in points_selected], [i[1] for i in points_selected],label="FL")
+    plt.legend()
+    plt.savefig('FL.png')
