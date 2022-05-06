@@ -1,5 +1,6 @@
 from cProfile import label
 from matplotlib import pyplot as plt
+import numpy as np
 
 from submodlib.functions.facilityLocation import FacilityLocationFunction
 from submodlib.helper import create_kernel
@@ -28,6 +29,6 @@ if __name__ == "__main__":
     plt.savefig('4a.png')
 
     #Part-4b (FacilityLocation)
-    obj1 = FacilityLocationFunction(n=len(gset),n_rep=len(rep), mode="dense", separate_rep=True,data=gset,data_rep=rep)
+    obj1 = FacilityLocationFunction(n=len(gset),n_rep=len(rep), mode="dense", separate_rep=True,data=np.array(gset),data_rep=np.array(rep))
     greedyList = obj1.maximize(budget=10,optimizer='NaiveGreedy', stopIfZeroGain=False, stopIfNegativeGain=False, verbose=False)
     print(greedyList)
