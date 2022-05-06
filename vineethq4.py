@@ -40,6 +40,7 @@ if __name__ == "__main__":
     repfile = open('rep.txt')
     groundset = []
     for l in groundsetfile.readlines():
+        print(l.strip().split(','))
         groundset.append([[float(i[0]),float(i[1])] for i in l.strip().split(',')])
     repset = []
     for l in repfile.readlines():
