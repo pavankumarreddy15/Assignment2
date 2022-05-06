@@ -28,6 +28,6 @@ if __name__ == "__main__":
     plt.savefig('4a.png')
 
     #Part-4b (FacilityLocation)
-    obj1 = FacilityLocationFunction(n=len(gset), mode="dense", separate_rep=True,data=gset,data_rep=rep)
+    obj1 = FacilityLocationFunction(n=len(gset),n_rep=len(rep), mode="dense", separate_rep=True,data=gset,data_rep=rep)
     greedyList = obj1.maximize(budget=10,optimizer='NaiveGreedy', stopIfZeroGain=False, stopIfNegativeGain=False, verbose=False)
     print(greedyList)
