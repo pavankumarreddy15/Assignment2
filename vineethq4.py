@@ -41,10 +41,10 @@ if __name__ == "__main__":
     groundset = []
     for l in groundsetfile.readlines():
         print(l.strip().split(','))
-        groundset.append([[float(i[0]),float(i[1])] for i in l.strip().split(',')])
+        groundset.append([float(l.strip().split(',')[0]),float(l.strip().split(',')[1])])
     repset = []
     for l in repfile.readlines():
-        repset.append([[float(i[0]),float(i[1])] for i in l.strip().split(',')])
+        repset.append([float(l.strip().split(',')[0]),float(l.strip().split(',')[1])])
 
     #Plotting all points of groundset and repset
     plt.scatter([i[0] for i in groundset],[i[1] for i in groundset],label="ground set")
