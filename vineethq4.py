@@ -11,6 +11,7 @@ from submodlib.functions.disparitySum import DisparitySumFunction
 from submodlib.functions.featureBased import FeatureBasedFunction
 
 def points(groundset,repset,func,lambdaval):
+    greedyList = []
     if func == "FacilityLocation":
         FL = FacilityLocationFunction(n=len(groundset),n_rep=len(repset), mode="dense", separate_rep=True,data=np.array(groundset),data_rep=np.array(repset),metric="euclidean")
         greedyList = FL.maximize(budget=10,optimizer='NaiveGreedy', stopIfZeroGain=False, stopIfNegativeGain=False, verbose=False)
